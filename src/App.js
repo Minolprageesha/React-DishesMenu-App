@@ -1,69 +1,46 @@
 
 import './App.css';
+import {Navbar,NavbarBrand} from 'reactstrap';
+import Menucomponent, { selectedDish} from './component/Menucomponent';
+import {DISHES} from './shared/dishes';
+import { Component } from 'react';
+import DishdetailComponent from './component/DishdetailComponent';
 
-function App() {
+
+
+class App extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state ={
+      dishes:DISHES,
+      selectedDish:selectedDish
+
+
+    };
+  }
+
+  render(){
+
+
+  
+
   return (
-    <div className="App">
-      <header className="App-header">
-
-        <table>
-          <tbody>
-          
-            <tr>
-              <td>
-              <div className = "left">
-                <img className="image" ></img>
-                  <p>this is colom</p>
-                  <table>
-                    <tfoot>
-                      <td className="footer">
-                        4 Read
-                      </td>
-                      <td className="footer">
-                        55 view
-                      </td>
-                      <td className="footer">
-                        77 comments
-                      </td>
-                    </tfoot>
-                  </table>
-                </div>
-
-              </td>
-
-              <td>
-              <div className = "right">
-                  <p>this is colom</p>
-                </div>
-              </td>
-                
-          
-                
-
-            </tr>
-          </tbody>
-        </table>
-        
-        
+    <div>
+     
+      <Navbar dark color ="primary">
+        <div className="container">
+          <div className ="navbarbrand"> <NavbarBrand href ="/" >Profile</NavbarBrand>  </div>
+        </div>
+      </Navbar>
+      <Menucomponent dishes={this.state.dishes}/>
+      <DishdetailComponent selectedDish={this.state.selectedDish} /> 
 
 
       
-       
-        {/* <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a> */}
-      </header>
-    </div>
+    </div> 
+
   );
 }
-
+}
 export default App;
