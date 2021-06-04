@@ -4,13 +4,14 @@ export class DishdetailComponent extends Component {
 
 
     render() {
-        const { name,label,image,price} = this.props;
+        const { dish,selectedDish} = this.props;
         return (
-            <div style={{width:'300px',height:'400px',backgroundColor:'gray'}}>
-                <h1>{name}</h1>
-                <img src={image} />
-                <h3>{label}</h3>
-                <h3>{price}</h3>
+            <div style={{width:'300px',height:'400px',backgroundColor:'gray'}} onClick={()=>selectedDish(dish)}>
+                <h1>{dish.name}</h1>
+                <img src={dish.image} />
+                <h3>{dish.label}</h3>
+                <h3>{dish.price}</h3>
+               
             </div>
         )
     }

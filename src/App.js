@@ -10,6 +10,7 @@ import './App.css';
 import React, { Component } from 'react';
 import {DISHES} from './shared/dishes'
 import Menucomponent from './component/Menucomponent';
+import SelectedDishDetails from './component/SelectedDishDetails';
 
 class App extends Component{
     /**
@@ -24,13 +25,17 @@ class App extends Component{
         selectedDish:null
     }
 }
-  handelSelectedDish(dish){
+  handelSelectedDish=(dish)=>{
     this.setState({selectedDish:dish})
   }
 
   render(){
+    console.log(this.state.selectedDish);
     return(
-      <Menucomponent selectedDish={this.selectedDish} dishes={this.state.dishes}/>
+      <div style={{display:'flex' }}>
+        <Menucomponent selectedDish={this.handelSelectedDish} dishes={this.state.dishes}/>
+        <SelectedDishDetails selectedDish={this.state.selectedDish}/>
+      </div>
     );
   }
 }

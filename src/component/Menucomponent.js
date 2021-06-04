@@ -10,10 +10,10 @@ class Menucomponent extends Component{
 
    renderDishes(){
        return this.props.dishes.map(dish=>{
-           const {id,name,image,category,label,price} = dish;
            return(
-               <div key={id}>
-                   <DishdetailComponent name={name} image={image} category={category} label={label} price={price}/>
+               <div key={dish.id}>
+                   <DishdetailComponent dish={dish} selectedDish={this.props.selectedDish} />
+                  
                </div>
            )
        })
